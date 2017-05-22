@@ -7,7 +7,7 @@
  Description : RACE in C
  ============================================================================
  */
-#include<stdio.h>
+#include <stdio.h>
 
 int Set_Start_Position (){
 
