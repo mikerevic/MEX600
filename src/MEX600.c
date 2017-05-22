@@ -15,6 +15,5 @@
 
 int main(void) {
 	Set_Start_Position ();
-
 	return EXIT_SUCCESS;
 }
