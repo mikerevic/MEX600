@@ -41,6 +41,23 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
+					<folderInfo id="cdt.managedbuild.config.gnu.exe.debug.1671143974.1631666113" name="/" resourcePath="src">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.exe.debug.1323939325" name="Linux GCC" superClass="cdt.managedbuild.toolchain.gnu.exe.debug" unusedChildren="">
+							<tool id="cdt.managedbuild.tool.gnu.archiver.base.596366274" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.base.2083100949"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.275572743" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.2130705012"/>
+							<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1821313871" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.675080929">
+								<option id="gnu.c.compiler.option.include.paths.760232653" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
+								</option>
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.95049808" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.debug.423880221" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.debug.1227953013"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.2008285254" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.1067498300"/>
+							<tool id="cdt.managedbuild.tool.gnu.assembler.exe.debug.391577626" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.exe.debug.223642672">
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1669699844" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
+						</toolChain>
+					</folderInfo>
 					<sourceEntries>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 					</sourceEntries>
@@ -109,4 +126,6 @@
 		</scannerConfigBuildInfo>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
+	<storageModule moduleId="refreshScope"/>
 </cproject>
