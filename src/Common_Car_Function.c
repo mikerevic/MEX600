@@ -9,6 +9,7 @@
  */
 #include <stdio.h>
 #include <string.h>
+#include <pthread.h>
 #include "Common.h"
 
 void setStartPosition(car* array, raceTracks* rt) {
@@ -54,30 +55,36 @@ void setStartPosition(car* array, raceTracks* rt) {
 //	printf("%d\n", current->IDCar);
 //}
 
-void ispisMatrice(raceTracks rt) {
+void ispisMatrice(raceTracks* rt) {
 	int i;
 	int j;
 	for (i = 0; i < 100; i++) {
 		for (j = 0; j < 3; j++) {
-			printf("%d\t", rt.tracks[j][i]);
+			printf("%d\t", rt->tracks[j][i]);
 		}
 		printf("\n");
 	}
 }
 
+pthread_mutex_t count_mutex;
+
 void* move(void* param1) {
 	parametar* rt = (parametar*) param1;
 	car* car1 = rt->car1;
 	raceTracks* racetrack = rt->raceTrack;
+	pthread_mutex_lock(&count_mutex);
 	int currentRow = car1->row;
 	int currentColumn = car1->column;
-	racetrack->tracks[currentRow-1][currentColumn+1] = 0;
-//	printf("cur row %d   ",currentRow);
-//	printf("cur col %d   ",currentColumn);
-	//printf("prije povecanja %d   ",currentRow);
-	currentColumn  += 10;
-	//printf("poslije   %d  ",currentRow);
-	racetrack->tracks[currentRow-1][currentColumn] = car1->IDCar;
-	//ispisMatrice(raceTracks1);
+	racetrack->tracks[currentRow-1][currentColumn] = 0;
+	currentColumn  += rand() % 99;
+	racetrack->tracks[currentRow][currentColumn] = car1->IDCar;
+	ispisMatrice(racetrack->tracks);
+	printf("------------------\n");
+	printf("car1->IDCar %d-----\n",car1->IDCar);
+	printf("------------------\n");
+
+	pthread_mutex_unlock(&count_mutex);
+
+
 }
 
