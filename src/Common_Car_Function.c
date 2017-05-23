@@ -78,6 +78,6 @@ void* move(void* param1) {
 	currentColumn  += 10;
 	//printf("poslije   %d  ",currentRow);
 	racetrack->tracks[currentRow-1][currentColumn] = car1->IDCar;
-
+	//ispisMatrice(raceTracks1);
 }
 
