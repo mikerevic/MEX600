@@ -18,7 +18,7 @@ void setStartPosition(car* array, raceTracks* rt) {
 	FILE *fp = fopen("Star_Postion_File.txt", "r");
 
 	if (fp == NULL) {
-		return 1;
+		//
 	}
 	for (i = 0; i < 9; i++) { //dodjeljuje startnu poziciju i id autu citajuci iz fajla
 		fgets(line, 25, fp);
