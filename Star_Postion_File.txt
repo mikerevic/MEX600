@@ -1,9 +1,9 @@
-Car 1 postion 1
-Car 2 postion 2
-Car 3 positon 3 
-Car 4 positon 4 
-Car 5 positon 5 
-Car 6 positon 6 
-Car 7 positon 7
-Car 8 positon 8
-Car 9 positon 9   
+Car 1 row 2 column 0 
+Car 2 row 2 column 1
+Car 3 row 0 column 2 
+Car 4 row 0 column 0 
+Car 5 row 2 column 2 
+Car 6 row 1 column 1 
+Car 7 row 1 column 2
+Car 8 row 1 column 0
+Car 9 row 0 column 1   

@@ -8,21 +8,31 @@
  ============================================================================
  */
 
-typedef struct Race_Pool{
-	int Staza_Za_Utrke [3][100];
-	int* Car_1_position;
-	int* Car_2_position;
-	int* Car_3_position;
-	int* Car_4_position;
-	int* Car_5_position;
-	int* Car_6_position;
-	int* Car_7_position;
-	int* Car_8_position;
-	int* Car_9_position;
-}Race_Pool;
+void* move(void* param1);
+typedef struct raceTracks {
+	int tracks[3][100];
+//	int* end_position;
+//	int* end_position;
+//	int* end_position;
 
-typedef struct  car {
-	int ID_Car;
+} raceTracks;
+
+typedef struct car {
+	int IDCar;
+	int row;
+	int column;
+} car;
 
 
-}car;
+typedef struct parametar {
+	car* car1;
+	raceTracks* raceTrack;
+}parametar;
+
+typedef struct race { //trka
+	char* date;
+	int numberOfLaps;
+
+} race;
+
+
