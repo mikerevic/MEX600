@@ -8,8 +8,8 @@
  ============================================================================
  */
 
-struct Race_Pool{
-	int Staza_Za_Utrke [1][3][100];
+typedef struct Race_Pool{
+	int Staza_Za_Utrke [3][100];
 	int* Car_1_position;
 	int* Car_2_position;
 	int* Car_3_position;
@@ -19,4 +19,10 @@ struct Race_Pool{
 	int* Car_7_position;
 	int* Car_8_position;
 	int* Car_9_position;
-};
+}Race_Pool;
+
+typedef struct  car {
+	int ID_Car;
+
+
+}car;
