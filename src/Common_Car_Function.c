@@ -72,12 +72,13 @@ void* move(void* param1) {
 	int currentRow = car1->row;
 	int currentColumn = car1->column;
 	racetrack->tracks[currentRow-1][currentColumn+1] = 0;
-//	printf("cur row %d   ",currentRow);
-//	printf("cur col %d   ",currentColumn);
+	//	printf("cur row %d   ",currentRow);
+	//	printf("cur col %d   ",currentColumn);
 	//printf("prije povecanja %d   ",currentRow);
 	currentColumn  += 10;
 	//printf("poslije   %d  ",currentRow);
 	racetrack->tracks[currentRow-1][currentColumn] = car1->IDCar;
+	sleep(10);
 
 }
 
