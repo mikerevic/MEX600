@@ -30,6 +30,7 @@ parametar ptr_9;
 
 int main(void) {
 
+	raceTracks1.weatherCondition = setWeatherCondition();
 
 	ptr_1.car1 = &arrayOfCars[0];
 	ptr_1.raceTrack = &raceTracks1;
@@ -59,29 +60,27 @@ int main(void) {
 	ptr_9.raceTrack = &raceTracks1;
 
 	setStartPosition(&arrayOfCars, &raceTracks1);
+	setGenerator(&raceTracks1, &arrayOfCars);
+
 	pthread_create(&ID_1, NULL, move, (void*) &ptr_1);
 	pthread_create(&ID_2, NULL, move, (void*) &ptr_2);
-	pthread_create(&ID_3, NULL, move, (void*) &ptr_3);
-	pthread_create(&ID_4, NULL, move, (void*) &ptr_4);
+//	pthread_create(&ID_3, NULL, move, (void*) &ptr_3);
+//	pthread_create(&ID_4, NULL, move, (void*) &ptr_4);
 	pthread_create(&ID_5, NULL, move, (void*) &ptr_5);
 	pthread_create(&ID_6, NULL, move, (void*) &ptr_6);
-	pthread_create(&ID_7, NULL, move, (void*) &ptr_7);
-	pthread_create(&ID_8, NULL, move, (void*) &ptr_8);
-	pthread_create(&ID_9, NULL, move, (void*) &ptr_9);
+//	pthread_create(&ID_7, NULL, move, (void*) &ptr_7);
+//	pthread_create(&ID_8, NULL, move, (void*) &ptr_8);
+//	pthread_create(&ID_9, NULL, move, (void*) &ptr_9);
 
-	pthread_join(ID_4, NULL);
 	pthread_join(ID_1, NULL);
 	pthread_join(ID_2, NULL);
-	pthread_join(ID_3, NULL);
+//	pthread_join(ID_3, NULL);
+//	pthread_join(ID_4, NULL);
 	pthread_join(ID_5, NULL);
-	pthread_join(ID_6, NULL);
-	pthread_join(ID_7, NULL);
-	pthread_join(ID_8, NULL);
-	pthread_join(ID_9, NULL);
+//	pthread_join(ID_6, NULL);
+//	pthread_join(ID_7, NULL);
+//	pthread_join(ID_8, NULL);
+//	pthread_join(ID_9, NULL);
 
-
-
-	while(1){
-		sleep(1);
-	}
+	return EXIT_SUCCESS;
 }
