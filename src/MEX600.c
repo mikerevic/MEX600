@@ -1,13 +1,12 @@
 /*
  ============================================================================
- Name        : MEX600.c
+ Name        : Common.h
  Author      : RT-RK
  Version     : 1.00.000
- Copyright   : Your copyright notice
- Description : CAR RACE in C
+ Copyright   : Bojan Mikerevic
+ Description : RACE in C
  ============================================================================
  */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
@@ -67,7 +66,7 @@ int main(void) {
 //	pthread_create(&ID_3, NULL, move, (void*) &ptr_3);
 //	pthread_create(&ID_4, NULL, move, (void*) &ptr_4);
 	pthread_create(&ID_5, NULL, move, (void*) &ptr_5);
-	pthread_create(&ID_6, NULL, move, (void*) &ptr_6);
+//	pthread_create(&ID_6, NULL, move, (void*) &ptr_6);
 //	pthread_create(&ID_7, NULL, move, (void*) &ptr_7);
 //	pthread_create(&ID_8, NULL, move, (void*) &ptr_8);
 //	pthread_create(&ID_9, NULL, move, (void*) &ptr_9);

@@ -156,7 +156,7 @@ void* move(void* param1) {
 			printf("pom je: %d\n", pom);
 		}
 		pom++;
-		if (pom < 10) {
+		if (pom ==0) {
 			printf("usao u if");
 			break;
 
