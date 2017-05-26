@@ -158,7 +158,13 @@ void* move(void* param1) {
 		int j;
 		for (i = 0; i < 100; i++) {
 			for (j = 0; j < 3; j++) {
-				printf("%d\t", racetrack->tracks[j][i]);
+				if(racetrack->tracks[j][i] == 0){
+					printf("|\t");
+				}
+				else{
+				printf("|    %d  ", racetrack->tracks[j][i]);
+
+				}
 			}
 			printf("\n");
 		}
