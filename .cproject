@@ -65,8 +65,17 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.exe.debug.1671143974.476140089" name="Common_Car_Function.c" rcbsApplicability="disable" resourcePath="src/Common_Car_Function.c" toolsToInvoke="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1821313871.764967012">
+						<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1821313871.764967012" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1821313871"/>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.exe.debug.1671143974.50755069" name="Common.h" rcbsApplicability="disable" resourcePath="src/Common.h" toolsToInvoke=""/>
+					<fileInfo id="cdt.managedbuild.config.gnu.exe.debug.1671143974.85656164" name="Auto_Trka.c" rcbsApplicability="disable" resourcePath="src/Auto_Trka.c" toolsToInvoke="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1821313871.1214015362">
+						<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1821313871.1214015362" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1821313871">
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.108369648" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
 					<sourceEntries>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+						<entry excluding="Common_Car_Function.c|Common.h|Auto_Trka.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

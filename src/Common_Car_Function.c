@@ -13,6 +13,7 @@
 #include "Common.h"
 #define DEBUG 1
 
+
 void setStartPosition(car* array, raceTracks* rt) {
 	int i;
 
@@ -33,6 +34,7 @@ void setStartPosition(car* array, raceTracks* rt) {
 		array[i].tires = d - '0';
 
 	}
+	//fclose(fp);
 }
 /*
  ============================================================================
@@ -97,8 +99,6 @@ void ispisMatrice(raceTracks* rt) {
  Description : RACE in C
  ============================================================================
  */
-int v;
-int noOfLaps = 0;
 pthread_mutex_t count_mutex0;
 pthread_mutex_t count_mutex1;
 pthread_mutex_t count_mutex2;
@@ -108,9 +108,7 @@ void* move(void* param1) {
 	parametar* rt = (parametar*) param1;
 	car* car1 = rt->car1;
 	raceTracks* racetrack = rt->raceTrack;
-
 	while (1) {
-
 		int y = car1->row;
 		int x = car1->column;
 
@@ -118,51 +116,142 @@ void* move(void* param1) {
 
 		while (currentStep > 0) {
 
-			pthread_mutex_lock(&count_mutex0);
-			if ((racetrack->tracks[x][y + 1] != 0)) {
-				if (currentStep > 1) {
-					y += 2;
-//					if (y < 100) {
-						racetrack->tracks[x][y + 2] = car1->IDCar;
-						racetrack->tracks[x][y] = 0;
-						car1->row += 2;
-						currentStep -= 2;
-//					}
-//					else {
-//						noOfLaps++;
-//						//ako je noOfLaps-1=numberOfLaps onda ga unesi u fajl
-//					}
-
-
-				} else {
+			//ako je auto u 0. koloni
+			if (x == 0) {
+		//		pthread_mutex_lock(&count_mutex0);
+				if ((racetrack->tracks[x][y + 1] != 0) && (racetrack->tracks[x][y + 1] == 0)) {
+					int condition = 1;
+					while (condition) {
+						if ((racetrack->tracks[x + 1][y + 1] == 0)) {
+							racetrack->tracks[x][y + 1] = car1->IDCar;
+							racetrack->tracks[x][y] = 0;
+							car1->column += 1;
+							x++;
+							currentStep--;
+							condition = 0;
+						} else if ((racetrack->tracks[x + 1][y + 2] == 0)
+								&& (racetrack->tracks[x][y + 2] == 0)) {
+							racetrack->tracks[x][y + 2] = car1->IDCar;
+							racetrack->tracks[x][y] = 0;
+							car1->column += 2;
+							x += 2;
+							currentStep -= 2;
+							condition = 0;
+						} else {
+							condition = 0;
+						}
+					}
+				} else if ((racetrack->tracks[x][y + 1] != 0) && (racetrack->tracks[x][y + 1] != 0)) {
+					currentStep = 0;
+			//		pthread_mutex_unlock(&count_mutex0);
 					break;
 				}
-			} else {
-				racetrack->tracks[x][y + 1] = car1->IDCar;
-				racetrack->tracks[x][y] = 0;
-				car1->row++;
-				y++;
-				currentStep--;
+				else {
+					racetrack->tracks[x][y + 1] = car1->IDCar;
+					racetrack->tracks[x][y] = 0;
+					car1->row++;
+					y++;
+					currentStep--;
+				}
+			//	pthread_mutex_unlock(&count_mutex0);
 			}
-			pthread_mutex_unlock(&count_mutex0);
+
+			//ako je auto u 1.koloni
+			else if (x == 1) {
+	//			pthread_mutex_lock(&count_mutex1);
+				if ((racetrack->tracks[x][y + 1] != 0) && (racetrack->tracks[x - 1][y] == 0) && (racetrack->tracks[x + 1][y] == 0))  {
+					int condition = 1;
+					while (condition) {
+						if ((racetrack->tracks[x + 1][y - 1] == 0)
+								&& (racetrack->tracks[x][y - 1] == 0)) {
+							racetrack->tracks[x][y - 1] = car1->IDCar;
+							racetrack->tracks[x][y] = 0;
+							car1->column -= 1;
+							x--;
+							currentStep -= 1;
+							condition = 0;
+						} else if ((racetrack->tracks[x + 1][y + 1] == 0)
+								&& (racetrack->tracks[x][y + 1] == 0)
+								&& (racetrack->tracks[x][y - 2] == 0)) {
+							racetrack->tracks[x][y + 1] = car1->IDCar;
+							racetrack->tracks[x][y] = 0;
+							car1->column += 1;
+							x++;
+							currentStep--;
+							condition = 0;
+						} else {
+							condition = 0;
+						}
+					}
+				} else  if ((racetrack->tracks[x][y + 1] != 0) && (racetrack->tracks[x - 1][y] != 0) && (racetrack->tracks[x + 1][y] != 0)) {
+					currentStep = 0;
+	//				pthread_mutex_unlock(&count_mutex1);
+					break;
+				}
+				else {
+					racetrack->tracks[x][y + 1] = car1->IDCar;
+					racetrack->tracks[x][y] = 0;
+					car1->row++;
+					y++;
+					currentStep--;
+				}
+				pthread_mutex_unlock(&count_mutex1);
+			}
+
+			//ako je u 2. kolini
+			else if (x == 2) {
+//				pthread_mutex_unlock(&count_mutex2);
+				if ((racetrack->tracks[x][y + 1] != 0) && (racetrack->tracks[x - 1][y] == 0)) {
+					int condition = 1;
+					while (condition) {
+						if ((racetrack->tracks[x + 1][y - 1] == 0)
+								&& (racetrack->tracks[x][y - 1] == 0)) {
+							racetrack->tracks[x][y - 1] = car1->IDCar;
+							racetrack->tracks[x][y] = 0;
+							car1->column -= 1;
+							x--;
+							currentStep--;
+							condition = 0;
+						} else if ((racetrack->tracks[x + 1][y - 2] == 0)
+								&& (racetrack->tracks[x][y - 1] == 0)
+								&& (racetrack->tracks[x][y - 2] == 0)) {
+							racetrack->tracks[x][y - 2] = car1->IDCar;
+							racetrack->tracks[x][y] = 0;
+							car1->column -= 2;
+							x -= 2;
+							currentStep -= 2;
+							condition = 0;
+						} else {
+							condition = 0;
+						}
+					}
+				} else if ((racetrack->tracks[x][y + 1] != 0) && (racetrack->tracks[x - 1][y] != 0)) {
+					currentStep = 0;
+	//				pthread_mutex_unlock(&count_mutex2);
+					break;
+				}
+				else {
+					racetrack->tracks[x][y + 1] = car1->IDCar;
+					racetrack->tracks[x][y] = 0;
+					car1->row++;
+					y++;
+					currentStep--;
+				}
+	//			pthread_mutex_unlock(&count_mutex2);
+			}
 
 		}
 
-		pthread_mutex_lock(&count_mutex4);
 		ispisMatrice(racetrack->tracks);
-		if (DEBUG) {
-			printf("*%d  korak %d\n", car1->IDCar, car1->step);
-			printf("----------------------");
-			printf("pom je: %d\n", pom);
-		}
-		pom++;
-		if (pom ==0) {
-			printf("usao u if");
-			break;
-
-		}
+		printf("--------------\n");
+		pthread_mutex_lock(&count_mutex4);
+		++pom;
 		pthread_mutex_unlock(&count_mutex4);
-		v += car1->step;
+		if(pom < 9){
+        return NULL;
+		}
 		sleep(1);
+		//pthread_mutex_unlock(&count_mutex4);
 	}
 }
+
